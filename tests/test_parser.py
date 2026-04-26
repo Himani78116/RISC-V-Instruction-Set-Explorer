@@ -14,6 +14,7 @@ sys.path.append(
 
 from src.crossref import normalize
 from src.crossref import split_extensions
+from src.parsing import group_by_extension
 
 
 class TestParser(unittest.TestCase):
@@ -42,6 +43,38 @@ class TestParser(unittest.TestCase):
         self.assertEqual(
             A & B,
             {"zba"}
+        )
+
+    def test_group_by_extension(self):
+
+        sample = {
+
+            "add":{
+                "extension":["rv_i"]
+            },
+
+            "andn":{
+                "extension":["rv_zbb","rv_zkn"]
+            }
+
+        }
+
+        grouped, multi = group_by_extension(sample)
+
+
+        self.assertEqual(
+            grouped["rv_i"],
+            ["add"]
+        )
+
+        self.assertEqual(
+            grouped["rv_zbb"],
+            ["andn"]
+        )
+
+        self.assertIn(
+            "andn",
+            multi
         )
 
 
