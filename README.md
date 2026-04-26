@@ -12,7 +12,9 @@ pip install requests networkx matplotlib
 
 ## Run
 
+python src/parsing.py
 python src/crossref.py
+python src/extension_graph.py
 
 ## Run Tests
 
