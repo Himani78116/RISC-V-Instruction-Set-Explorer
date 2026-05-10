@@ -26,6 +26,9 @@ python -m unittest tests.test_parser
 36 JSON only
 0 manual only
 
+## Note
+Due to naming inconsistencies and varying extension representations between the ISA manual and instr_dict.json, normalization heuristics were required to improve matching accuracy. Some extension tags may still remain unmatched because of draft, subset, legacy, or differently-scoped extension naming conventions.
+
 ## Assumptions
 
 - rv_zba normalized to zba
